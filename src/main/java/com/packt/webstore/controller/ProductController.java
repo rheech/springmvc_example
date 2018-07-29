@@ -14,21 +14,11 @@ import java.math.BigDecimal;
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
     private ProductService productService;
 
     @RequestMapping("/products")
     public String list(Model model) {
-        /*Product iphone = new Product("P1234", "iPhone 6s", new BigDecimal(500));
-        iphone.setDescription("Apple iPhone 6s smartphone with 4.00-inch 640x1136 display and 8-megapixel rear camera");
-        iphone.setCategory("Smartphone");
-        iphone.setManufacturer("Apple");
-        iphone.setUnitsInStock(1000);
-        model.addAttribute("product", iphone);*/
-
-        model.addAttribute("products", productRepository.getAllProducts());
+        model.addAttribute("products", productService.getAllProducts());
 
         return "products";
     }
