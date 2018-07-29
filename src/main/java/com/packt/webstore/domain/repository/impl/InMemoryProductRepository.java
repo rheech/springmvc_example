@@ -1,5 +1,6 @@
 package com.packt.webstore.domain.repository.impl;
 
+import com.packt.webstore.domain.Customer;
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
