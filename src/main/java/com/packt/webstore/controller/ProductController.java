@@ -15,9 +15,6 @@ import java.math.BigDecimal;
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
     private ProductService productService;
 
     @RequestMapping("/products")
