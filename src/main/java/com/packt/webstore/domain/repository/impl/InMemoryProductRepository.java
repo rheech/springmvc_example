@@ -31,10 +31,19 @@ public class InMemoryProductRepository implements ProductRepository {
     @Override
     public void updateStock(String productId, long noOfUnits) {
         String SQL = "UPDATE PRODUCTS SET UNITS_IN_STOCK = :unitsInStock WHERE ID = :id";
-        Map <String, Object> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("unitsInStock", noOfUnits);
         params.put("id", productId);
         jdbcTemplate.update(SQL, params);
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY = :category";
+        Map<String, Object> params = new HashMap<>();
+        params.put("category", category);
+
+        return jdbcTemplate.query(SQL, params, new ProductMapper());
     }
 
     private static final class ProductMapper implements RowMapper<Product> {
