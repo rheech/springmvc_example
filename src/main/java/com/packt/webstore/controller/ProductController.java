@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.math.BigDecimal;
 
 @Controller
-//@RequestMapping("/products")
+@RequestMapping("market")
 public class ProductController {
 
     @Autowired
@@ -28,6 +28,6 @@ public class ProductController {
     public String updateStock(Model model) {
         productService.updateAllStock();
 
-        return "redirect:/products";
+        return "redirect:/market/products";
     }
 }
